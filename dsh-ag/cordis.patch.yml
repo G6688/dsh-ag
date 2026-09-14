@@ -1,0 +1,32 @@
+# dsh-ag - mounts the ag中转站 provider plugin into this profile.
+#
+# Mounting the plugin is the switch: while it is mounted it writes the route
+# below into the `llm-pi-ai` settings section, and when it is unloaded - which
+# is what disabling it in the plugin panel or uninstalling it does - the route
+# goes away again. No command is needed in either direction. A route that was
+# already there is put back the way it was when the plugin goes away.
+#
+# Everything under `config:` is what gets written. Point `baseURL` and `proxy`
+# at whatever reaches your ag中转站 endpoint; `proxy: ''` means direct.
+#
+# proxy: the endpoint is not reachable from every network, and Node ignores
+# the operating system's proxy settings. Name a local proxy here and the plugin
+# routes that station's origins through it at run time, leaving every other
+# origin - other providers, the model's own web_fetch, loopback - alone. Use ''
+# when this network reaches the endpoint directly.
+- insert:
+    - id: ag
+      name: dsh-ag
+      config:
+        displayName: ag中转站
+        baseURL: https://agentrouter.org/v1
+        apiKeyEnv: AG_API_KEY
+        originator: codex_cli_rs
+        proxy: http://127.0.0.1:7890
+        models:
+          - glm-5.3
+          - deepseek-v4-flash
+          - gpt-5.6-sol
+          - gpt-6-astra
+          - claude-opus-4-8
+          - claude-opus-5

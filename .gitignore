@@ -1,0 +1,7 @@
+node_modules/
+*.log
+Thumbs.db
+.DS_Store
+
+# 本机 profile 的备份，属于个人环境，不随插件一起发布
+profile-backup/

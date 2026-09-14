@@ -1,0 +1,34 @@
+{
+  "name": "dsh-ag",
+  "version": "1.0.0",
+  "description": "Mount ag中转站 as a dsh model provider, and remove it again cleanly.",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./proxy.js": "./proxy.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "proxy.js",
+    "cordis.patch.yml",
+    "README.md",
+    "INSTALL.zh-CN.md"
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "ag-zhongzhuan"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "undici": "^7.29.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
